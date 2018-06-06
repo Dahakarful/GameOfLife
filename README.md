@@ -8,5 +8,5 @@ To use it choose the width and the height of the canvas with -w and -h which wil
 Then the rule that you want to generate with -r.
 The final launch will be :
 ```
-automate.py -w <width> -h <height> -r <the number of the rule>
+automaton.py -w <width> -h <height> -r <the number of the rule>
 ```
