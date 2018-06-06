@@ -16,7 +16,7 @@ x2 = 0
 listOfRules = None
 
 # Main programm
-def gameOfLife(width, height, rule, size):
+def automaton(width, height, rule, size):
     global sizeSquare
     global y2
     global generation
@@ -65,14 +65,6 @@ def evolve():
     listGeneration.append(linePlus)
     generation = linePlus
     drawSquare()
-
-# Generate random table
-def generateRandomLine(width, height):
-    x1 = random.randrange(width)
-    y1 = 0
-    x2 = x1 + random.randrange(width)
-    y2 = 2
-    w.create_rectangle(x1, y1, x2, y2, fill="blue", outline='black')
 
 # Draw squares with the given generation
 def drawSquare():
@@ -129,7 +121,7 @@ def main(argv):
         if opt == '-H':
             print('Choose the width and the height of the table with -w and -h\n')
             print('And choose the rule to generate with -r\n')
-            print('The final command should be: gameOfLife.py -w <width> -h <height> -r <number rule>\n')
+            print('The final command should be: automaton.py -w <width> -h <height> -r <number rule>\n')
             sys.exit()
         elif opt in ("-w", "--width"):
             try:
@@ -157,7 +149,7 @@ def main(argv):
         #         return
     if width != '' and height != '' and rule != '':
         #and size != '':
-        gameOfLife(width, height, rule, 1)
+        automaton(width, height, rule, 1)
     else:
         print('Run command with -H option for help')
 
