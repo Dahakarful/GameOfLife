@@ -9,24 +9,26 @@ listGeneration = []
 numberOfGeneration = 1
 
 # Main programm
-def gameOfLife(width, height):
+def gameOfLife(width, height, speed):
     global generation
     global listGeneration
     global w
 
     generation = [[0 for x in range(width)] for y in range(height)]
 
-    generation[25][25] = 1
-    generation[25][26] = 1
-    generation[26][24] = 1
-    generation[26][25] = 1
-    generation[27][25] = 1
+    middleX = int(width / 2)
+    middleY = int(height / 2)
+    generation[middleX][middleY] = 1
+    generation[middleX][middleY + 1] = 1
+    generation[middleX + 1][middleY -1] = 1
+    generation[middleX + 1][middleY] = 1
+    generation[middleX + 2][middleY] = 1
     listGeneration = copy.deepcopy(generation)
     
     w = Canvas(master, width=width, height=height)
 
     while True:
-        master.after(10, evolve())
+        master.after(speed, evolve())
         w.pack()
         master.update_idletasks()
         master.update()
@@ -98,8 +100,9 @@ def drawSquare():
 def main(argv):
     width = ''
     height = ''
+    speed = ''
     try:
-        opts, args = getopt.getopt(argv,"Hw:h:",["width=","height="])
+        opts, args = getopt.getopt(argv,"Hw:h:s:",["width=","height=","speed="])
     except getopt.GetoptError:
         print('Bad parameters ! Run command with -H option for help')
         sys.exit(2)
@@ -107,7 +110,7 @@ def main(argv):
         if opt == '-H':
             print('Choose the width and the height of the table with -w and -h\n')
             print('And choose the rule to generate with -r\n')
-            print('The final command should be: gameOfLife.py -w <width> -h <height> -r <number rule>\n')
+            print('The final command should be: gameOfLife.py -w <width> -h <height> -s <speed>\n')
             sys.exit()
         elif opt in ("-w", "--width"):
             try:
@@ -121,8 +124,14 @@ def main(argv):
             except ValueError:
                 print('-w: Option height need to be an int')
                 return
-    if width != '' and height != '':
-        gameOfLife(width, height)
+        elif opt in ("-s", "--speed"):
+            try:
+                speed = int(arg)
+            except ValueError:
+                print('-s: Option speed need to be an int')
+                return
+    if width != '' and height != '' and speed != '':
+        gameOfLife(width, height, speed)
     else:
         print('Run command with -H option for help')
 

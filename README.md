@@ -12,8 +12,8 @@ automaton.py -w <width> -h <height> -r <the number of the rule>
 # Game Of Life
 
 To use ```gameOfLife.py``` put your initial draw in generation array of method gameOfLife(), by putting one in the two dimensional array.
-Then launch the script and choose your width and height with arguments.
+Then launch the script and choose your width, height and speed (in milliseconds) with arguments.
 The final launch will be :
 ```
-gameOfLife.py -w <width> -h <height>
+gameOfLife.py -w <width> -h <height> -s <speed>
 ```
