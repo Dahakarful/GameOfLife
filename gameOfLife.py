@@ -97,7 +97,7 @@ def drawSquare():
         for i in range(sizeY):
             if listGeneration[index][i] == 1:
                 w.create_rectangle(i * size, index * size, i * size + size, index * size + size, fill="black")
-    w.create_text(8, 8, fill="darkblue", font="Times 8", text=numberOfGeneration)
+    w.create_text(10, 10, fill="darkblue", font="Times 8", text=numberOfGeneration)
 
 # Launch arguments
 def main(argv):

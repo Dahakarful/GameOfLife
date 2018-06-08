@@ -11,9 +11,13 @@ automaton.py -w <width> -h <height> -r <the number of the rule>
 
 # Game Of Life
 
-To use ```gameOfLife.py``` put your initial draw in generation array of method gameOfLife(), by putting one in the two dimensional array.
-Then launch the script and choose your width, height and speed (in milliseconds) with arguments.
-The final launch will be :
+To use ```gameOfLife.py``` put your initial draw in the file ```shapes.py```, by configuring the generation array, and by putting ones in the two dimensional array.
+
+The arguments are: -w (width of the canvas) -h (height of the canvas) -s (speed of the generation in milliseconds) -g (grandeur of squares drawn) -n (name of the initial shape).
+
+The shapes available are: shape1, simkinGliderGun, beeHive, stairs.
+
+The final command should be:
 ```
-gameOfLife.py -w <width> -h <height> -s <speed>
+gameOfLife.py -w < width > -h < height > -s < speed > -g < grandeurOfSquares > -n < nameOfShape >
 ```

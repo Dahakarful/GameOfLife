@@ -94,3 +94,7 @@ def stairs(generation):
     generation[middleY - 2][middleX - 2] = 1
     generation[middleY - 2][middleX - 1] = 1
     return generation
+
+def spaceShip(generation):
+    
+    return generation
