@@ -20,4 +20,4 @@ The shapes available are: shape1, simkinGliderGun, beeHive, stairs.
 The final command should be:
 ```
 gameOfLife.py -w < width > -h < height > -s < speed > -g < grandeurOfSquares > -n < nameOfShape >
-```
+``` 
